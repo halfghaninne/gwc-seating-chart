@@ -31,13 +31,15 @@ end
 def pretty_print(groups)
     i = 0 
     until i > groups.length
+        puts " "
         puts "Group #{i+1}:"
         groups[i].each do |student|
             puts "#{student}"
         end
-        puts " "
         i += 1
     end
 end
 
-seating_chart(3)
+puts "Enter the number of students per group:"
+num = gets.chomp.to_i
+seating_chart(num)
