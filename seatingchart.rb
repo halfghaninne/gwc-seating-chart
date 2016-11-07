@@ -1,5 +1,7 @@
-@class = ["Alex", "Ahyonna", "Ariah", "Cassie", "Laura", "Nia", "Riya", "Shree", 
-"Sneha", "Vienne"]
+require 'pry'
+
+@class = ["Ahyonna", "Alex", "Ariah", "Cassie", "Chloe", "Laura", "Nia", "Riya", 
+"Shree", "Sneha", "Vienne"]
 
 def seating_chart(num)
     @num = num
@@ -12,10 +14,11 @@ def seating_chart(num)
         counter += @num
         i+= @num
     end
-    seating_chart_check(groups)
+    seating_chart_check(dangler_check(groups))
 end
 
 def seating_chart_check(groups)
+    binding.pry
     if unapproved_groups(groups)
         seating_chart(@num)
     else
@@ -24,13 +27,33 @@ def seating_chart_check(groups)
 end
 
 def unapproved_groups(groups)
-    groups.include?(["Ariah", "Vienne"]) || groups.include?(["Vienne","Ariah"]) || 
-    groups.include?(["Ariah", "Cassie"]) || groups.include?(["Cassie", "Ariah"])
+    groups.each do |group|
+        if group.include?("Ariah") && group.include?("Vienne")
+            return true
+        elsif group.include?("Ariah") && group.include?("Cassie")
+            return true
+        else
+            return false
+        end
+    end
+end
+
+def dangler_check(groups)
+    i = 0
+    until i >= groups.length 
+        if groups[i].length == 1
+            groups[i-1] << groups[i][0]
+            dangler_index = i 
+        end
+        i += 1
+    end
+    groups.delete_at(dangler_index) if dangler_index
+    return groups
 end
 
 def pretty_print(groups)
     i = 0 
-    until i > groups.length
+    until i >= groups.length
         puts " "
         puts "Group #{i+1}:"
         groups[i].each do |student|
