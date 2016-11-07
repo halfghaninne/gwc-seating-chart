@@ -18,7 +18,6 @@ def seating_chart(num)
 end
 
 def seating_chart_check(groups)
-    binding.pry
     if unapproved_groups(groups)
         seating_chart(@num)
     else
