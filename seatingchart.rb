@@ -1,7 +1,7 @@
 require 'pry'
 
-@class = ["Ahyonna", "Alex", "Ariah", "Cassie", "Chloe", "Laura", "Nia", "Riya", 
-"Shree", "Sneha", "Vienne"]
+@class = ["Steven", "Connie", "Garnet", "Amethyst", "Pearl", "Rose Quartz", 
+"Peridot", "Lapis", "Onion", "Jasper", "Greg"]
 
 def seating_chart(num)
     @num = num
@@ -27,9 +27,9 @@ end
 
 def unapproved_groups(groups)
     groups.each do |group|
-        if group.include?("Ariah") && group.include?("Vienne")
+        if group.include?("Jasper") && group.include?("Lapis")
             return true
-        elsif group.include?("Ariah") && group.include?("Cassie")
+        elsif group.include?("Jasper") && group.include?("Peridot")
             return true
         else
             return false
