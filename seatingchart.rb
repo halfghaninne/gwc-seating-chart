@@ -1,7 +1,4 @@
-require 'pry'
-
-@class = ["Steven", "Connie", "Garnet", "Amethyst", "Pearl", "Rose Quartz", 
-"Peridot", "Lapis", "Onion", "Jasper", "Greg"]
+@class = ["Shree","Laura","Riya","Sneha","Cassie","Vienne","Nia","Chloe","Ahyonna"]
 
 def seating_chart(num)
     @num = num
@@ -26,15 +23,15 @@ def seating_chart_check(groups)
 end
 
 def unapproved_groups(groups)
+    nope = 0
     groups.each do |group|
         if group.include?("Jasper") && group.include?("Lapis")
-            return true
+            nope += 1
         elsif group.include?("Jasper") && group.include?("Peridot")
-            return true
-        else
-            return false
+            nope += 1
         end
     end
+    nope > 0
 end
 
 def dangler_check(groups)
