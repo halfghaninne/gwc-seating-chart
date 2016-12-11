@@ -1,6 +1,7 @@
-@class = ["Shree","Laura","Riya","Sneha","Cassie","Vienne","Nia","Chloe","Ahyonna"]
+@class = ["Amethyst","Garnet","Pearl","Steven","Connie","Greg",
+        "Peridot","Lapis","Jasper", "Lion", "Onion"]
 
-def seating_chart(num)
+def group_split(num)
     @num = num
     arr = @class.shuffle
     groups = []
@@ -16,7 +17,7 @@ end
 
 def seating_chart_check(groups)
     if unapproved_groups(groups)
-        seating_chart(@num)
+        group_split(@num)
     else
         pretty_print(groups)
     end
@@ -61,4 +62,4 @@ end
 
 puts "Enter the number of students per group:"
 num = gets.chomp.to_i
-seating_chart(num)
+group_split(num)
