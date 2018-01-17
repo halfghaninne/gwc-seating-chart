@@ -1,4 +1,5 @@
 # GWC Seating Chart
+## A quick script for creating class groups of any size, avoiding disruptive matches.
 
 **Ruby**
 
@@ -8,7 +9,7 @@ As a facilitator for Girls Who Code at [Do Space](http://dospace.org/), I often 
 
 So, I quickly threw together this little script in my language of choice, Ruby. 
 
-Currently, the application needs to be run locally in the command line, and the class roster is hard-coded into the script _(yikes, right?)._ More on that below:
+Currently, the application needs to be run locally in the command line, and the class roster is hard-coded into the script _(yikes, right?)._ More on that below.
 
 ## Where to improve
 
