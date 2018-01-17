@@ -1,5 +1,6 @@
 # GWC Seating Chart
-## A quick script for creating class groups of any size, avoiding disruptive matches.
+
+> A quick script for creating class groups of any size, avoiding disruptive matches.
 
 **Ruby**
 
