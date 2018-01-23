@@ -48,9 +48,19 @@ def unapproved_groups(groups)
     nope > 0
 end
 
+# groups is an array of arrays ( a collection of student groups )
+#
+# O(n) time complexity
+#
+# Curious to know if this collection is sorted (ie if the 'dangler' will always be at the beginning or end of the collection. If so, that will be a way to make the check more performant -- just look up the first or last item to check for length -- an operation with O(1) time complexity)
 def dangler_check(groups)
     i = 0
+    # O(n) - looping through each group in the collection
+    # Maybe replace with a Hash table of group lenghts? Trying to figure 
     until i >= groups.length 
+        # O(1)
+        #
+        # if there is a group that only has one member, push that member into the preceding group. 
         if groups[i].length == 1
             groups[i-1] << groups[i][0]
             dangler_index = i 
@@ -61,11 +71,14 @@ def dangler_check(groups)
     return groups
 end
 
+# O(2n)
 def pretty_print(groups)
     i = 0 
+    # O(n)
     until i >= groups.length
         puts " "
         puts "Group #{i+1}:"
+        # O(n)
         groups[i].each do |student|
             puts "#{student}"
         end
