@@ -32,11 +32,15 @@ def seating_chart_check(groups)
     end
 end
 
+# O(3n) - not the worst, but could improve this by using Hash table instead of several includes lookups
 def unapproved_groups(groups)
     nope = 0
+    # O(n)
     groups.each do |group|
+        # O(2n)
         if group.include?("Jasper") && group.include?("Lapis")
             nope += 1
+        # OR O(2n)
         elsif group.include?("Jasper") && group.include?("Peridot")
             nope += 1
         end
