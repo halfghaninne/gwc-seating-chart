@@ -1,13 +1,22 @@
 @class = ["Amethyst","Garnet","Pearl","Steven","Connie","Greg",
         "Peridot","Lapis","Jasper", "Lion", "Onion"]
 
+# Right now, pretty inefficient O(n log n + constant)
 def group_split(num)
     @num = num
+    # What is the time complexity here with Ruby's built-in shuffle method?
+    #
+    # https://szeryf.wordpress.com/2007/06/19/a-simple-shuffle-that-proved-not-so-simple-after-all/
+    # ^ according to this dude, shuffle is O(nlogn)
+    #
+    # My first thought is that efficiency of the shuffly doesn't _really_ matter for usage of this application because _most_ use cases will involve small class sizes. But it's possible that teachers of large classes will also have a desire to keep pairings "kosher" (think student conduct adjudications)
+    # switch to a Fisher Yates shuffle, which has O(n) complexity.
     arr = @class.shuffle
     groups = []
     counter = @num
     i = 0
     until i >= arr.length
+        # lookup is 0(constant) efficiency ( O(@num))
         groups << arr[i..(counter-1)]
         counter += @num
         i+= @num
