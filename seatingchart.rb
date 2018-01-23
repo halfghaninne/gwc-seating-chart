@@ -72,6 +72,8 @@ def dangler_check(groups)
 end
 
 # O(2n)
+# 
+# This method will probably be done away with once an application is built around the script so it's low-priority
 def pretty_print(groups)
     i = 0 
     # O(n)
